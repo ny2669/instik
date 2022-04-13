@@ -1,9 +1,10 @@
 import React, { useState, useContext } from 'react'
 import Header, {Title} from './Header'
-import ProductList from './ProductList'
 import { context } from './Content'
-import CartItem from './CartItem'
 import styled from 'styled-components'
+import CartItem from './CartItem'
+
+
 
 
 const Titles = styled.h1`
@@ -11,24 +12,31 @@ text-align: center;
 
 `
 
-export default function Cart() {
+export default function Cart(item) {
 
 
 
-  const {cart} = useContext(context)
+const {cart , products} = useContext(context)
+
+let whT = 0
+
+const test = cart.map(items => {
+
+  whT = whT + items.price 
+
+return whT  
+
+})
 
 
 
- const cartList = cart.map(item => <CartItem item={item}/>)
+
+const display = test.toLocaleString("en-US", {style: "currency", currency: "USD"})
+
+
+ const cartList = cart.map(item => <CartItem key={item.id} item={item}/>)
   
 
-const Total = cart.map(item => item.price)
-
-const GrandT = Total * CartItem.length
-
-const test = toString(GrandT)
-
-console.log(test)
 
   return (
     <>
@@ -37,7 +45,10 @@ console.log(test)
 
     {cartList}
 
-    {/* <p>Total: {toLocaleString("en-GB", {style: "currency", currency: "GBP"})} </p> */}
+
+
+    <p>Total: {whT.toLocaleString("en-GB", {style: "currency", currency: "GBP"})}  </p>
+
 <br/>
 <button>Place Order</button>
     </>

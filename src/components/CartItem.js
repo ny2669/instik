@@ -31,8 +31,10 @@ margin: 20px auto;
 `
 
 
-export default function CartItem({item, cart}) {
-  const {RemoveFromCart} = useContext(context)
+export default function CartItem({item}) {
+
+  const {RemoveFromCart, cart} = useContext(context)
+  // const total = Math.round(item.price) * cart.length 
   return (
     <CartContainer>
 
@@ -43,9 +45,9 @@ export default function CartItem({item, cart}) {
 
 <br/>
 
-    
 
 <button onClick={() => RemoveFromCart(item.id)}>remove item</button>
+
 
 </CartContainer>
 

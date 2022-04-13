@@ -57,7 +57,10 @@ const RemoveFromCart = (id) => {
    
   
   }
- 
+
+// const total =  cart.map(item => item.price) * cart.length
+
+//  console.log(total)
 
     return(
 
