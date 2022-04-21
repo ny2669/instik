@@ -45,9 +45,8 @@ top: 5%;
 
 export default function ProductList(props) {
   
-const {addToCart, products} = useContext(context)
+const {addToCart, products, isFavourite, AddToFavouries} = useContext(context)
 
-const {isFavourite} = useContext(context)
 
 
 const heart = <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-heart" viewBox="0 0 16 16">
@@ -68,7 +67,7 @@ const plus = <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill
            <Card key={item.id} onMouseEnter={() => props.setHovered(true)} onMouseLeave={()=> props.setHovered(false)}>
 <Image src={item.image} alt={item.title}/>
 <Icons>
-  <div onClick={() => isFavourite(item.id)}>{props.hovered && <span>{heart} </span> }
+  <div onClick={() => AddToFavouries(item)}>{props.hovered && <span>{heart} </span> }
 </div>
 
   <div onClick={() => addToCart(item)}>{props.hovered && plus}

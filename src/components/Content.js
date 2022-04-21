@@ -8,6 +8,8 @@ import { NavItem } from 'react-bootstrap'
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState([])
     const [isFav, setIsFav] = useState(false)
+    const [favourites,setFavourites] = useState([])
+    
     
 
 
@@ -58,13 +60,22 @@ const RemoveFromCart = (id) => {
   
   }
 
-// const total =  cart.map(item => item.price) * cart.length
+  function emptyCart() {
+    setCart([])
+}
 
-//  console.log(total)
+
+const AddToFavouries = (newFave) => {
+
+    setFavourites(prev => [...favourites, newFave])
+}
+
+
+
 
     return(
 
-        <context.Provider value={{products, addToCart, cart, isFavourite, RemoveFromCart}}>
+        <context.Provider value={{products, addToCart, cart, isFavourite, RemoveFromCart, setCart, emptyCart, AddToFavouries, favourites}}>
             {children}
         </context.Provider>
     )

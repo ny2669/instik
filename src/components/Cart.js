@@ -12,26 +12,41 @@ text-align: center;
 
 `
 
-export default function Cart(item) {
+export default function Cart() {
 
+const [placeOrder,setplaceOrder] = useState('Place Order')
 
+const {cart , products, setCart, emptyCart} = useContext(context)
 
-const {cart , products} = useContext(context)
-
-let whT = 0
+let total = 0
 
 const test = cart.map(items => {
 
-  whT = whT + items.price 
+  total = total + items.price 
 
-return whT  
+return total  
 
 })
 
+const PlaceOrder = () => {
+  setplaceOrder('ordering...')
+  setTimeout(() =>{
+
+    setplaceOrder('Order Complete')
+    emptyCart()
+    setTimeout(() => {
+      setplaceOrder('Place Order')
+    }, 1000)
+  
+    
+  }, 3000)
+  
+}
 
 
 
-const display = test.toLocaleString("en-US", {style: "currency", currency: "USD"})
+
+
 
 
  const cartList = cart.map(item => <CartItem key={item.id} item={item}/>)
@@ -47,10 +62,10 @@ const display = test.toLocaleString("en-US", {style: "currency", currency: "USD"
 
 
 
-    <p>Total: {whT.toLocaleString("en-GB", {style: "currency", currency: "GBP"})}  </p>
+    <p>Total: {total.toLocaleString("en-GB", {style: "currency", currency: "GBP"})}  </p>
 
 <br/>
-<button>Place Order</button>
+{cart.length > 0 ? <button onClick={PlaceOrder}>{ placeOrder}</button> : null}
     </>
   )
 }
