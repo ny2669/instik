@@ -12,7 +12,7 @@ padding: 5px;
 display: flex;
 align-items: center;
 box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
-/* justify-content: space-around; */
+
 
 `
 
