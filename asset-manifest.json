@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/instik/static/css/main.c3cb3c47.css",
+    "main.js": "/instik/static/js/main.4849108b.js",
+    "static/js/787.f821d797.chunk.js": "/instik/static/js/787.f821d797.chunk.js",
+    "index.html": "/instik/index.html",
+    "main.c3cb3c47.css.map": "/instik/static/css/main.c3cb3c47.css.map",
+    "main.4849108b.js.map": "/instik/static/js/main.4849108b.js.map",
+    "787.f821d797.chunk.js.map": "/instik/static/js/787.f821d797.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c3cb3c47.css",
+    "static/js/main.4849108b.js"
+  ]
+}
